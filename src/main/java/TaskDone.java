@@ -1,6 +1,7 @@
 
 
-import java.io.IOException;
+import java.io.IOException;import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -22,6 +23,7 @@ public class TaskDone extends HttpServlet {
 		int index=Integer.parseInt(request.getParameter("id"));
 		ToDo task = toDoList.get(index);
 		task.setComplete(true);
+		task.setCompletedDate(new SimpleDateFormat("MM/dd/yy").format(new Date()));
 		toDoList.remove(index);
 		toDoList.add(task);
 		request.getRequestDispatcher("/WEB-INF/ViewToDo.jsp").forward(request, response);

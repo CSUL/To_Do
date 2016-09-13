@@ -5,6 +5,7 @@ public class ToDo {
 	String task;
 	String date;
 	boolean complete;
+	String completedDate;
 	
 	public ToDo()
 	{
@@ -15,6 +16,7 @@ public class ToDo {
 		this.task=task;
 		this.date=date;
 		complete = false;
+		completedDate = null;
 	}
 
 	public String getTask() {
@@ -41,4 +43,11 @@ public class ToDo {
 		return complete;
 	}
 	
+	public void setCompletedDate(String date){
+		this.completedDate = date;
+	}
+	
+	public String  getCompletedDate(){
+		return this.completedDate;
+	}
 }
