@@ -5,11 +5,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
 <title>GuestBook</title>
 </head>
 <body>
 <form action="AddTask" method ="post">
-<table border="2">
+<table border="2" class="table table-striped">
 <tr><th>Task</th><th>Date</th><th>Done</th>
 </tr>
 <c:forEach items="${toDoList}" var="toDo" varStatus="status">
@@ -27,7 +31,7 @@
 <p>
 <b>Tasks Completed</b>
 </p>
-<table border="1">
+<table border="1" class="table table-striped">
 <tr><th>Task</th><th>Assign Date</th><th>Complete Date</th></tr>
 <c:forEach items="${toDoList}" var="toDo" varStatus="status">
 <c:if test="${toDo.complete }">
