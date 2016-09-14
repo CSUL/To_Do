@@ -17,7 +17,7 @@
 <tr>
  <td>${toDo.task }</td>
  <td>${toDo.date }</td>
- <td><a href="TaskDone?id=${status.index}">X</a></td>
+ <td><a href="TaskDone?id=${status.index}"><img alt="" src="assets/delete.png" style="width: 16px; height: 16px;" /></a></td>
  </tr>
 </c:if> 
 </c:forEach>
@@ -28,14 +28,13 @@
 <b>Tasks Completed</b>
 </p>
 <table border="1">
-<tr><th>Task</th><th>Assign Date</th><th>Complete Date</th><th>Done</th></tr>
+<tr><th>Task</th><th>Assign Date</th><th>Complete Date</th></tr>
 <c:forEach items="${toDoList}" var="toDo" varStatus="status">
 <c:if test="${toDo.complete }">
 <tr>
 <td>${toDo.task }</td>
 <td>${toDo.date }</td>
 <td>${toDo.completedDate }</td>
- <td><img alt="" src="assets/delete.png" style="width: 16px; height: 16px;" /></td>
 </tr>
 </c:if>
 </c:forEach>
