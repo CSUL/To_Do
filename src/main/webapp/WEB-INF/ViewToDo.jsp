@@ -8,24 +8,36 @@
 <title>GuestBook</title>
 </head>
 <body>
+<form action="AddTask" method ="post">
 <table border="2">
 <tr><th>Task</th><th>Date</th><th>Done</th>
 </tr>
 <c:forEach items="${toDoList}" var="toDo" varStatus="status">
-<tr>
-<c:if test="${toDo.complete}">
- <td><strike>${toDo.task}</strike></td>
-</c:if>
 <c:if test="${not toDo.complete}"> 
+<tr>
  <td>${toDo.task }</td>
+ <td>${toDo.date }</td>
+ <td><a href="TaskDone?id=${status.index}">X</a></td>
+ </tr>
 </c:if> 
-
-<td>${toDo.date }</td>
-<td><a href="TaskDone?id=${status.index}">X</a></td>
-</tr>
 </c:forEach>
-<tr><td><form action="AddTask" method ="post"> <input type = 'text' name = 'task'/></td><td><button >Add</button></form><td></tr>
+<tr> <td><input type = 'text' name = 'task'/></td><td><button >Add</button><td></tr>
 </table>
-
+</form>
+<p>
+<b>Tasks Completed</b>
+</p>
+<table border="1">
+<tr><th>Task</th><th>Assign Date</th><th>Complete Date</th></tr>
+<c:forEach items="${toDoList}" var="toDo" varStatus="status">
+<c:if test="${toDo.complete }">
+<tr>
+<td>${toDo.task }</td>
+<td>${toDo.date }</td>
+<td>${toDo.completedDate }</td>
+</tr>
+</c:if>
+</c:forEach>
+</table>
 </body>
 </html>
